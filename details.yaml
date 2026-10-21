@@ -1,0 +1,7 @@
+name: roa-mod-template
+# mod loader version that this mod supports
+loader-version: 0.0.7
+description: custom texture loader
+# url of repository to fetch released to update from
+repository: 
+branch: 
