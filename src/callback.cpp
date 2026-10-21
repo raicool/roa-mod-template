@@ -7,7 +7,7 @@ void handle_wndproc(
 	LPARAM& lParam
 )
 {
-	// This WndProc callback is ran before WndProc is processed for the main Rivals of Aether executable thread
+	// This callback is ran before WndProc is processed for the main Rivals of Aether executable thread
 	// Editing uMsg, wParam, or lParam will also edit the values passed to the main thread
 
 	if (uMsg == WM_KEYDOWN && wParam == VK_ESCAPE)
@@ -26,7 +26,7 @@ void dx_present(
 	ID3D11DeviceContext* d3d_device_context
 )
 {
-	// This dx_present callback is ran before IDXGISwapChain::Present is called for the main Rivals of Aether executable thread
+	// This callback is ran before IDXGISwapChain::Present is called for the main Rivals of Aether executable thread
 	// Editing any values pointer to by the function parameter will also edit the values passed to the main thread
 
 	return;
