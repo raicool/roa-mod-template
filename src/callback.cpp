@@ -1,6 +1,6 @@
 #include "callback.h"
 
-void handle_wndproc(
+void wndproc(
 	const HWND hWnd,
 	UINT& uMsg,
 	WPARAM& wParam,
@@ -19,7 +19,7 @@ void handle_wndproc(
 }
 
 
-void dx_present(
+void present(
 	ID3D11RenderTargetView* render_target,
 	IDXGISwapChain* swapchain,
 	ID3D11Device* d3d_device,

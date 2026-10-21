@@ -7,10 +7,10 @@ DWORD WINAPI entry(LPVOID hModule)
 	loader_log_info("welcome to roa-mod-template version {}", VERSION_STR);
 
 	// add a callback to be called whenever a frame is rendered
-	loader_add_present_callback(dx_present);
+	loader_add_present_callback(present);
 
 	// add a callback to be called whenever rival's window attempts to process an event
-	loader_add_wndproc_callback(handle_wndproc);
+	loader_add_wndproc_callback(wndproc);
 
 	return TRUE;
 }
