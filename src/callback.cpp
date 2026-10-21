@@ -27,7 +27,7 @@ void present(
 )
 {
 	// This callback is ran before IDXGISwapChain::Present is called for the main Rivals of Aether executable thread
-	// Editing any values pointer to by the function parameter will also edit the values passed to the main thread
+	// Editing any values pointed to by the function parameter will also edit the values passed to the main thread
 
 	return;
 }
