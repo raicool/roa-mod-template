@@ -2,8 +2,15 @@
 
 #include <loader/loader.h>
 
-DWORD WINAPI entry(LPVOID hModule)
+LOADER_MOD_ENTRY initialize(loader_info* info)
 {
+	loader_mod& mod_instance = loader_mod::get();
+
+	mod_instance.name = "roa-mod-template";
+	mod_instance.description = "a template mod for roa-mod-loader";
+	mod_instance.repository = "https://github.com/raicool/roa-mod-template";
+	mod_instance.commit_hash = 0x00000000;
+
 	loader_log_info("welcome to roa-mod-template version {}", VERSION_STR);
 
 	// add a callback to be called whenever a frame is rendered
@@ -12,25 +19,5 @@ DWORD WINAPI entry(LPVOID hModule)
 	// add a callback to be called whenever rival's window attempts to process an event
 	loader_add_wndproc_callback(wndproc);
 
-	return TRUE;
-}
-
-BOOL APIENTRY DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved)
-{
-	if (fdwReason == DLL_PROCESS_ATTACH)
-	{
-		DisableThreadLibraryCalls(hModule);
-
-		HANDLE hHandle = CreateThread(NULL, 0, entry, hModule, 0, NULL);
-		if (hHandle != NULL)
-		{
-			CloseHandle(hHandle);
-		}
-	}
-	else if (fdwReason == DLL_PROCESS_DETACH && !lpReserved)
-	{
-		FreeLibraryAndExitThread(hModule, 0);
-	}
-
-	return TRUE;
+	return mod_instance;
 }
