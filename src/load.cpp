@@ -13,6 +13,14 @@ LOADER_MOD_ENTRY initialize(loader_info* info)
 
 	loader_log_info("welcome to roa-mod-template version {}", VERSION_STR);
 
+	// logs can also be nested using logger_nestscope
+	// logs will automatically be unnested when the nest class is out of scope
+	{
+		logger_nestscope nest;
+
+		loader_log_info("this is my nested log!");
+	}
+
 	// add a callback to be called whenever a frame is rendered
 	loader_add_present_callback(present);
 
