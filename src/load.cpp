@@ -29,3 +29,8 @@ LOADER_MOD_ENTRY initialize(loader_info* info)
 
 	return mod_instance;
 }
+
+LOADER_MOD_EXIT shutdown()
+{
+	loader_log_info("this is my shutdown!");
+}
